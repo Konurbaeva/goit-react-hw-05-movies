@@ -10,7 +10,7 @@ import * as moviesApi from "../../services/movie-api";
 //     console.log('movies: ', movies);
 
 //     useEffect(() => {
-//         moviesApi.getDetails().then(setMovies)
+//         moviesApi.getMovieDetails().then(setMovies)
 //     }, []);
 
 //     return (
@@ -37,7 +37,7 @@ export const MovieDetailsPage = () => {
 
     console.log('movies: ', movies);
     useEffect(() => {
-        moviesApi.getDetails().then(setMovies)
+        moviesApi.getMovieDetails().then(setMovies)
     }, []);
 
     return (

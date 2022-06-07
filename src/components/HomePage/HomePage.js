@@ -7,7 +7,8 @@ export const HomePage = () => {
 
     console.log('movies: ', movies);
     useEffect(() => {
-        moviesApi.getDetails().then(setMovies)
+        // moviesApi.getMovieDetails().then(setMovies)
+        moviesApi.getTrending().then(setMovies);
     }, []);
 
 
