@@ -15,15 +15,6 @@ export async function getTrending() {
 }
 
 
-// https://api.themoviedb.org/3/search/movie/day?api_key=171aaca622cd75e6df5a814c1d33ccb1
-
-// ?api_key=171aaca622cd75e6df5a814c1d33ccb1&query=twilight&page=1&include_adult=false
-
-// export async function searchByMovie(id) {
-//     const response = await axios.get(`/search/movie?apikey=${KEY}`);
-//     return response.data;
-// }
-
 export async function searchByMovie(searchQuery, page = 1) {
     const response = await axios.get(`/search/movie?apikey=${KEY}&query=${searchQuery}&page=${page}&include_adult=false`);
     return response.data;
