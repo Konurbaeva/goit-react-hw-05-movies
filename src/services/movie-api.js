@@ -3,5 +3,28 @@
 // /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.
 // /movies/get-movie-credits запрос информации о актёрском составе для страницы кинофильма.
 // /movies/get-movie-reviews запрос обзоров для страницы кинофильма.
+import axios from "axios";
+const KEY = '171aaca622cd75e6df5a814c1d33ccb1';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+
+// https://api.themoviedb.org/3/trending/movie/day?api_key=171aaca622cd75e6df5a814c1d33ccb1
+
+export async function getTrending() {
+    const response = await axios.get(`/trending/movie/day?api_key=${KEY}`);
+    return response.results;
+}
 
 
+// https://api.themoviedb.org/3/search/movie/day?api_key=171aaca622cd75e6df5a814c1d33ccb1
+
+// ?api_key=171aaca622cd75e6df5a814c1d33ccb1&query=twilight&page=1&include_adult=false
+
+// export async function searchByMovie(id) {
+//     const response = await axios.get(`/search/movie?apikey=${KEY}`);
+//     return response.data;
+// }
+
+export async function searchByMovie(searchQuery, page = 1) {
+    const response = await axios.get(`/search/movie?apikey=${KEY}&query=${searchQuery}&page=${page}&include_adult=false`);
+    return response.data;
+}
