@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 // import { Link, Outlet } from "react-router-dom";
-import { useMatch } from "react-router-dom";
+import { useMatch, useLocation } from "react-router-dom";
 import * as moviesApi from "../../services/movie-api";
 
 export const HomePage = () => {
     const [movies, setMovies] = useState([]);
 
     // const match = useRouteMatch();
+    // const match = useMatch();
+    // console.log(match);
 
-    const match = useMatch();
-    console.log(match);
+    const location = useLocation();
+
+    console.log('location: ', location);
 
     console.log('movies HomePage: ', movies);
     useEffect(() => {
