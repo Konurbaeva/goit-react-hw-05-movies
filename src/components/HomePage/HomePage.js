@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 // import { Link, Outlet } from "react-router-dom";
+import { useMatch } from "react-router-dom";
 import * as moviesApi from "../../services/movie-api";
 
 export const HomePage = () => {
     const [movies, setMovies] = useState([]);
 
-    console.log('movies: ', movies);
+    // const match = useRouteMatch();
+
+    const match = useMatch();
+    console.log(match);
+
+    console.log('movies HomePage: ', movies);
     useEffect(() => {
-        moviesApi.getMovieDetails().then(setMovies)
+        // moviesApi.getMovieDetails().then(setMovies)
         moviesApi.getTrending().then(setMovies);
     }, []);
 
@@ -15,6 +21,9 @@ export const HomePage = () => {
     return (
         <main style={{ padding: "1rem 0" }}>
             <h2>HomePage</h2>
+            {movies && movies.map(movie => (
+                <li key={movie.id}>{movie}</li>
+            ))}
         </main>
     )
 }

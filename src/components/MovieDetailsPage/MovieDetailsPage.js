@@ -35,7 +35,7 @@ import * as moviesApi from "../../services/movie-api";
 export const MovieDetailsPage = () => {
     const [movies, setMovies] = useState([]);
 
-    console.log('movies: ', movies);
+    console.log('MovieDetailsPage: ', movies);
     useEffect(() => {
         moviesApi.getMovieDetails().then(setMovies)
     }, []);

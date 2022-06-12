@@ -1,9 +1,7 @@
  // import { Outlet, Link } from "react-router-dom";
-import {
-   // BrowserRouter,
-    Routes,
-    Route,
-} from "react-router-dom";
+import { 
+    // BrowserRouter as Router,
+    Routes,  Route} from "react-router-dom";
 
 import { HomePage } from "./HomePage/HomePage";
 import { MovieDetailsPage } from "./MovieDetailsPage/MovieDetailsPage";
@@ -22,11 +20,19 @@ export const App  = () =>{
                     <Route path="/movies/:movieId/cast" element={<Cast />} />
                     <Route path="/movies/:movieId/reviews" element={<Reviews />} />
                 </Route>
-                <Route path="*" element={<NotFoundPage />} />
             </Route>
-        </Routes>
-      <Outlet /> */}
- <Routes>
+        </Routes> */}
+ 
+    <Routes>
+      <Route path="/" element={<HomePage />}>
+        <Route path="/movies" element={<MoviesPage />}>
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+          <Route path="/movies/:movieId/cast" element={<Cast />} />
+          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+        </Route>
+      </Route>
+    </Routes>
+ {/* <Routes>
       <Route path="/" element={<HomePage />}>
         <Route path="/movies" element={< MoviesPage />}>
           <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
@@ -34,7 +40,7 @@ export const App  = () =>{
           <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         </Route>
       </Route>
-    </Routes>
+    </Routes> */}
     </div>
   );
 }
