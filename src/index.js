@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename='/Konurbaeva/goit-react-hw-05-movies/'>
     <App />
   </BrowserRouter>
 );

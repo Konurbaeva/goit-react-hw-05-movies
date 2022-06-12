@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+// import { Link, Outlet } from "react-router-dom";
 import * as moviesApi from "../../services/movie-api";
 
 export const HomePage = () => {
