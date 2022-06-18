@@ -13,7 +13,8 @@ import {
 
 
 const HomePage = lazy(() => import('./HomePage/HomePage.js'));
-const MovieDetailsPage = lazy(() => import('./MovieDetails/MovieDetails.js'));
+// const MovieDetailsPage = lazy(() => import('./MovieDetails/MovieDetails.js'));
+const MovieDetailsPage = lazy(() => import('./MovieDetailsPage/MovieDetailsPage'))
 const  MoviesPage = lazy(() => import('./MoviesPage/MoviesPage.js'));
 const Cast = lazy(() => import('./Cast/Cast.js'));
 const Reviews = lazy(() => import('./Reviews/Reviews.js'));
@@ -22,34 +23,15 @@ const Reviews = lazy(() => import('./Reviews/Reviews.js'));
 export const App  = () =>{
   return (
     <div>
-        {/* <Routes>
-            <Route path="/" element={<HomePage />}>
-                <Route path="/movies" element={< MoviesPage />} />
-                <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-                    <Route path="/movies/:movieId/cast" element={<Cast />} />
-                    <Route path="/movies/:movieId/reviews" element={<Reviews />} />
-                </Route>
-            </Route>
-        </Routes> */}
- 
-    <Routes>
-      <Route path="/" element={<HomePage />}>
+     <Routes>
+        <Route path="/" element={<HomePage />}>       
         <Route path="/movies" element={<MoviesPage />}>
           <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
           <Route path="/movies/:movieId/cast" element={<Cast />} />
           <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         </Route>
       </Route>
-    </Routes>
- {/* <Routes>
-      <Route path="/" element={<HomePage />}>
-        <Route path="/movies" element={< MoviesPage />}>
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
-          <Route path="/movies/:movieId/cast" element={<Cast />} />
-          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
-        </Route>
-      </Route>
-    </Routes> */}
+      </Routes>
     </div>
   );
 }
