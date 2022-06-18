@@ -10,6 +10,7 @@ export const HomePage = () => {
     // const match = useMatch();
     // console.log(match);
 
+    // is useLocation v5?
     const location = useLocation();
 
     console.log('location: ', location);
@@ -24,6 +25,7 @@ export const HomePage = () => {
     return (
         <main style={{ padding: "1rem 0" }}>
             <h2>HomePage</h2>
+
             {movies && movies.map(movie => (
                 <li key={movie.id}>{movie}</li>
             ))}
