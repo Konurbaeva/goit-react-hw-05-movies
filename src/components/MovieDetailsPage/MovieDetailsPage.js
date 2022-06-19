@@ -32,7 +32,7 @@ import * as moviesApi from "../../services/movie-api";
 //     )
 // }
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
     const [movies, setMovies] = useState([]);
 
     console.log('MovieDetailsPage: ', movies);
@@ -50,3 +50,5 @@ export const MovieDetailsPage = () => {
         </div>
     )
 }
+
+export default MovieDetailsPage;

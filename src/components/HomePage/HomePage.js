@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useMatch, useLocation } from "react-router-dom";
 import * as moviesApi from "../../services/movie-api";
 
-export const HomePage = () => {
+const HomePage = () => {
     const [movies, setMovies] = useState([]);
 
     // const match = useRouteMatch();
@@ -32,3 +32,5 @@ export const HomePage = () => {
         </main>
     )
 }
+
+export default HomePage;
