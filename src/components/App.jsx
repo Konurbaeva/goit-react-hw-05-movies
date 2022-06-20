@@ -2,14 +2,14 @@
  import { lazy } from 'react';
 import { 
     Routes,  Route} from "react-router-dom";
-import { NotFoundPage } from "./NotFoundPage";
 
-const HomePage = lazy(() => import('./HomePage/HomePage.js'));
+const HomePage = lazy(() => import('./Views/HomePage/HomePage.js'));
 // const MovieDetailsPage = lazy(() => import('./MovieDetails/MovieDetails.js'));
-const MovieDetailsPage = lazy(() => import('./MovieDetailsPage/MovieDetailsPage'))
-const  MoviesPage = lazy(() => import('./MoviesPage/MoviesPage.js'));
-const Cast = lazy(() => import('./Cast/Cast.js'));
-const Reviews = lazy(() => import('./Reviews/Reviews.js'));
+const MovieDetailsPage = lazy(() => import('./Views/MovieDetailsPage/MovieDetailsPage'))
+const  MoviesPage = lazy(() => import('./Views/MoviesPage/MoviesPage.js'));
+const Cast = lazy(() => import('./Views/Cast/Cast.js'));
+const Reviews = lazy(() => import('./Views/Reviews/Reviews.js'));
+const  NotFoundPage = lazy(() => import('./Views/NotFoundPage/NotFoundPage.js'));
 
 
 export const App  = () =>{

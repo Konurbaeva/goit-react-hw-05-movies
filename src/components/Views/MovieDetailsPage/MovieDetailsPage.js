@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 
-import * as moviesApi from "../../services/movie-api";
+import * as moviesApi from "../../../services/movie-api";
 
 // const MovieDetailsPage = () => {
 //     const [movies, setMovies] = useState([]);
@@ -38,7 +38,14 @@ const MovieDetailsPage = () => {
     const [movie, setMovie] = useState([]);
     const location = useLocation();
     const navigate = useNavigate();
+    // console.log('location.pathname: ', location.pathname);
+
     console.log('location.pathname: ', location.pathname);
+
+    useEffect(() => {
+        console.log('location: ', location);
+        moviesApi.getMovieDetails().then(setMovie);
+    }, [location]);
 
     return (
         <>
