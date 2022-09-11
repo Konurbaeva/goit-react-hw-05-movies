@@ -8,13 +8,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 // import { Reviews } from './Views/Reviews/Review';
 // import { NotFoundPage } from './Views/NotFound/NotFound';
 
-// import HomePage from './Views/HomePage';
-// import MoviesPage from './Views/MoviesPage';
-// import MovieDetailsPage from './Views/MovieDetailsPage';
-// import Cast from './Views/Cast/Cast';
-// import Reviews from './Views/Reviews';
-// import NotFoundPage from './Views/NotFound';
-
 const HomePage = lazy(() => import('./Views/HomePage/HomePage.js'));
 // const MovieDetailsPage = lazy(() => import('./MovieDetails/MovieDetails.js'));
 const MovieDetailsPage = lazy(() =>
