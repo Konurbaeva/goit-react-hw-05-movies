@@ -27,7 +27,8 @@ export const App = () => {
         <Link to="/movies:movieId">MovieDetailsPage</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route index element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />}>
           <Route path=":movieId" element={<MovieDetailsPage />} />
           <Route path=":movieId/cast" element={<Cast />} />
