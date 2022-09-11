@@ -11,15 +11,15 @@ const MoviesPage = () => {
         moviesApi.getMovieDetails().then(setMovies);
     }, []);
 
-    console.log('movies: ', movies);
-    console.log('location: ', location);
+    console.log('MoviesPage movies: ', movies);
+    console.log('MoviesPage location: ', location);
 
     return (
         <>
             <h1>MoviesPage</h1>
-            {/* {events.length > 0 && (
+            {movies.length > 0 && (
                 <ul>
-                    {events.map(({ id, name }) => (
+                    {movies.map(({ id, name }) => (
                         <li key={id}>
                             <Link to={`${id}`} state={{ from: location.pathname }}>
                                 {name}
@@ -27,8 +27,7 @@ const MoviesPage = () => {
                         </li>
                     ))}
                 </ul>
-            )} */}
-
+            )}
             <Outlet />
         </>
     );
