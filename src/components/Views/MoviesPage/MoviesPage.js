@@ -5,19 +5,40 @@ import { useLocation } from "react-router-dom";
 
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
+    const [searchQuery, setSearchQuery] = useState([]);
+    const [inputText, setInputText] = useState("");
     const location = useLocation();
 
-    useEffect(() => {
-        moviesApi.getMovieDetails().then(setMovies);
-    }, []);
+    let inputHandler = (e) => {
+        let lowerCase = e.target.value.toLowerCase();
+        setInputText(lowerCase)
+    }
 
-    console.log('MoviesPage movies: ', movies);
-    console.log('MoviesPage location: ', location);
+    // useEffect(() => {
+    //     moviesApi.getMovieDetails().then(setMovies);
+    // }, []);
+
+    // useEffect(() => {
+    //     moviesApi.searchMovies().then(setMovies);
+    // }, []);
+
+    useEffect(() => {
+        moviesApi.searchMovies(searchQuery).then(setSearchQuery);
+    }, [searchQuery]);
+
+    // console.log('MoviesPage movies: ', movies);
+    // console.log('MoviesPage location: ', location);
 
     return (
         <>
-            <h1>MoviesPage</h1>
-            {movies.length > 0 && (
+            <h1>Movies</h1>
+            <input
+                onChange={inputHandler}
+                label="Search for movies"
+            />
+            <button type="submit">Search</button>
+            {movies}
+            {/* {movies.length > 0 && (
                 <ul>
                     {movies.map(({ id, name }) => (
                         <li key={id}>
@@ -27,7 +48,7 @@ const MoviesPage = () => {
                         </li>
                     ))}
                 </ul>
-            )}
+            )} */}
             <Outlet />
         </>
     );
