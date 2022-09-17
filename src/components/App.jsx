@@ -1,6 +1,7 @@
 // import { Outlet, Link } from "react-router-dom";
 import { lazy } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 // import { HomePage } from './Views/HomePage/HomePage';
 // import { MoviesPage } from './Views/MoviesPage/MoviesPage';
 // import { MovieDetailsPage } from './Views/MovieDetailsPage';
@@ -18,13 +19,32 @@ const Cast = lazy(() => import('./Views/Cast/Cast.js'));
 const Reviews = lazy(() => import('./Views/Reviews/Reviews.js'));
 const NotFoundPage = lazy(() => import('./Views/NotFoundPage/NotFoundPage.js'));
 
+const StyledLink = styled(NavLink)`
+  color: black;
+
+  &.active {
+    color: orange;
+  }
+`;
+
 export const App = () => {
   return (
     <div>
-      <nav>
+      {/* <nav>
         <Link to="/">Home</Link>
+        <br />
         <Link to="/movies">Movies</Link>
+        <br />
         <Link to="/movies:movieId">MovieDetailsPage</Link>
+        <br />
+      </nav> */}
+      <nav>
+        <StyledLink to="/">Home</StyledLink>
+        <br />
+        <StyledLink to="/movies">Movies</StyledLink>
+        <br />
+        <StyledLink to="/movies:movieId">MovieDetailsPage</StyledLink>
+        <br />
       </nav>
       <Routes>
         <Route index element={<HomePage />} />

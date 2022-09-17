@@ -5,13 +5,15 @@ import { useLocation } from "react-router-dom";
 
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
-    const [searchQuery, setSearchQuery] = useState([]);
-    const [inputText, setInputText] = useState("");
+    const [searchQuery, setSearchQuery] = useState('');
+
     const location = useLocation();
+
+    console.log('location: ', location)
 
     let inputHandler = (e) => {
         let lowerCase = e.target.value.toLowerCase();
-        setInputText(lowerCase)
+        setSearchQuery(lowerCase)
     }
 
     // useEffect(() => {
