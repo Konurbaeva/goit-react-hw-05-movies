@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+
+    const { id } = useParams();
+    const movie = moviesApi.getMovieDetails(id);
 
     const location = useLocation();
 
@@ -16,30 +19,28 @@ const MoviesPage = () => {
         setSearchQuery(lowerCase)
     }
 
+    useEffect(() => {
+        moviesApi.searchMovies(searchQuery).then(setMovies);
+    }, [searchQuery]);
+
     // useEffect(() => {
     //     moviesApi.getMovieDetails().then(setMovies);
     // }, []);
 
-    // useEffect(() => {
-    //     moviesApi.searchMovies().then(setMovies);
-    // }, []);
-
-    useEffect(() => {
-        moviesApi.searchMovies(searchQuery).then(setSearchQuery);
-    }, [searchQuery]);
-
-    // console.log('MoviesPage movies: ', movies);
-    // console.log('MoviesPage location: ', location);
 
     return (
         <>
             <h1>Movies</h1>
             <input
                 onChange={inputHandler}
-                label="Search for movies"
+                value={searchQuery}
+                placeholder="Search for movies"
             />
             <button type="submit">Search</button>
-            {movies}
+            Movie - {movie}
+            {movies && movies.map(({ id, original_title }) => (
+                <li key={id}>{original_title}</li>
+            ))}
             {/* {movies.length > 0 && (
                 <ul>
                     {movies.map(({ id, name }) => (

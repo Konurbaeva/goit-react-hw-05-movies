@@ -30,14 +30,6 @@ const StyledLink = styled(NavLink)`
 export const App = () => {
   return (
     <div>
-      {/* <nav>
-        <Link to="/">Home</Link>
-        <br />
-        <Link to="/movies">Movies</Link>
-        <br />
-        <Link to="/movies:movieId">MovieDetailsPage</Link>
-        <br />
-      </nav> */}
       <nav>
         <StyledLink to="/">Home</StyledLink>
         <br />
