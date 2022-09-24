@@ -2,12 +2,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-// import { HomePage } from './Views/HomePage/HomePage';
-// import { MoviesPage } from './Views/MoviesPage/MoviesPage';
-// import { MovieDetailsPage } from './Views/MovieDetailsPage';
-// import { Cast } from './Views/Cast/Cast';
-// import { Reviews } from './Views/Reviews/Review';
-// import { NotFoundPage } from './Views/NotFound/NotFound';
 
 const HomePage = lazy(() => import('./Views/HomePage/HomePage.js'));
 // const MovieDetailsPage = lazy(() => import('./MovieDetails/MovieDetails.js'));
