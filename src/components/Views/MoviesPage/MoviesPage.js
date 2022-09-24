@@ -35,7 +35,7 @@ const MoviesPage = () => {
     // }, [searchQuery]);
 
     useEffect(() => {
-        moviesApi.searchMovies(searchQuery).then();
+        moviesApi.searchMovies(searchQuery).then(setMovies);
     }, [searchQuery]);
 
     // useEffect(() => {

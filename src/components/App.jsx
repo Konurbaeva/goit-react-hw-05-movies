@@ -13,6 +13,7 @@ const Cast = lazy(() => import('./Views/Cast/Cast.js'));
 const Reviews = lazy(() => import('./Views/Reviews/Reviews.js'));
 const NotFoundPage = lazy(() => import('./Views/NotFoundPage/NotFoundPage.js'));
 const Loader = lazy(() => import('./Views/Loader/Loader.js'));
+const Layout = lazy(() => import('../components/Layout/Layout'));
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -35,13 +36,28 @@ export const App = () => {
       </nav>
       <Outlet />
       <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
+        {/* <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />}>
+            <Route path=":movieId" element={<MovieDetailsPage />}>
+              <Route path=":movieId/cast" element={<Cast />} />
+              <Route path=":movieId/reviews" element={<Reviews />} />
+            </Route>
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes> */}
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="movies" element={<MoviesPage />}>
+            <Route path=":movieId" element={<MovieDetailsPage />}>
+              <Route path=":movieId/cast" element={<Cast />} />
+              <Route path=":movieId/reviews" element={<Reviews />} />
+            </Route>
+          </Route>
+          <Route
+            path="movies/:movieId/details"
+            element={<MovieDetailsPage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
