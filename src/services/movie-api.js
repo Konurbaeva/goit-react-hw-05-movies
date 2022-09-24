@@ -27,6 +27,12 @@ export async function searchMovies(searchQuery) {
     return response.data.results;
 }
 
+// /movie/10205?api_key=171aaca622cd75e6df5a814c1d33ccb1&language=en-US
+export async function getMovieDetails(movieId) {
+    const response = await axios.get(`/movie/${movieId}?api_key=${KEY}`);
+    return response;
+}
+
 
 
 /* // https://api.themoviedb.org/3/trending/movie/day?api_key=171aaca622cd75e6df5a814c1d33ccb1
@@ -41,12 +47,6 @@ export async function getTrending() {
 export async function searchMovies(searchQuery, page = 1) {
     const response = await axios.get(`/search/movie?apikey=${KEY}&query=${searchQuery}&page=${page}&include_adult=false`);
     return response.results;
-}
-
-// /movie/10205?api_key=171aaca622cd75e6df5a814c1d33ccb1&language=en-US
-export async function getMovieDetails(movieId) {
-    const response = await axios.get(`/movie/${movieId}?api_key=${KEY}`);
-    return response;
 }
 
 // /movie/10205/credits?api_key=171aaca622cd75e6df5a814c1d33ccb1&language=en-US

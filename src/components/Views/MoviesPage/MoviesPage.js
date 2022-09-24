@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 // import { Link, Outlet } from "react-router-dom";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
 import { useLocation } from "react-router-dom";
 
@@ -30,13 +30,13 @@ const MoviesPage = () => {
         setSearchQuery(searchQuery);
     };
 
-    useEffect(() => {
-        moviesApi.searchMovies(searchQuery).then(setMovies);
-    }, [searchQuery]);
-
     // useEffect(() => {
-    //     moviesApi.searchMovies(searchQuery).then(setSearchQuery);
+    //     moviesApi.searchMovies(searchQuery).then(setMovies);
     // }, [searchQuery]);
+
+    useEffect(() => {
+        moviesApi.searchMovies(searchQuery).then();
+    }, [searchQuery]);
 
     // useEffect(() => {
     //     moviesApi.getMovieDetails().then(setMovies);
@@ -52,21 +52,19 @@ const MoviesPage = () => {
                     placeholder="Search for movies"
                 />
                 <button type="submit">Search</button>
-
                 {movies && movies.map(({ id, original_title }) => (
                     <li key={id}>{original_title}</li>
                 ))}
-                {/* {movies.length > 0 && (
-                <ul>
-                    {movies.map(({ id, name }) => (
+                {/* {
+                    movies.map(({ id, name, original_title }) => (
                         <li key={id}>
-                            <Link to={`${id}`} state={{ from: location.pathname }}>
-                                {name}
+                            <Link to={id} state={{ from: location.pathname }}>
+                                {original_title}
                             </Link>
                         </li>
-                    ))}
-                </ul>
-            )} */}
+                    ))
+                } */}
+
             </form>
             <Outlet />
         </>

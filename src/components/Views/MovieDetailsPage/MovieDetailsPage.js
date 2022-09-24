@@ -11,13 +11,6 @@ const MovieDetailsPage = () => {
     const { movieId } = useParams();
     const location = useLocation();
 
-    console.log('hash', location.hash);
-    console.log('pathname', location.pathname);
-
-    console.log('location: ', location);
-    // const movieId = useParams().movieId;
-    console.log('movieId: ', movieId);
-    console.log('movies: ', movies);
 
     useEffect(() => {
         moviesApi.getMovieById(movieId).then(setMovies)
@@ -40,8 +33,8 @@ const MovieDetailsPage = () => {
                     </Link>
                 ))} */}
 
-                {movies.map((movie) => (
-                    <Link to={`${movie.id}`}>
+                {movies.map(({ movieId }) => (
+                    <Link to={`${movieId}`}>
                         <img src="https://via.placeholder.com/200x100" alt="" />
                     </Link>
                 ))}
