@@ -14,11 +14,19 @@ export async function getMovieById(movieId) {
 
 // https://api.themoviedb.org/3/search/movie?api_key=e095a1290a6e5cce004c0f0ac9fc4656&query=
 
+// export async function searchMovies(searchQuery) {
+//     const response = await axios.get(`/search/movie?api_key=${KEY}&query=${searchQuery}`)
+//     console.log('searchMovies: ', response);
+//     return response.results;
+// }
+
 export async function searchMovies(searchQuery) {
-    const response = await axios.get(`/search/movie?api_key=${KEY}&query=${searchQuery}`)
+    const response = await axios.get(`/search/movie?&query=${searchQuery}&api_key=${KEY}`)
+
     console.log('searchMovies: ', response);
-    return response.results;
+    return response.data.results;
 }
+
 
 
 /* // https://api.themoviedb.org/3/trending/movie/day?api_key=171aaca622cd75e6df5a814c1d33ccb1

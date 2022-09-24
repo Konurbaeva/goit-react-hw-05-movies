@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 // import { useMatch, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
 
 const HomePage = () => {
@@ -33,8 +34,11 @@ const HomePage = () => {
         <main style={{ padding: "1rem 0" }}>
             <h2>HomePage</h2>
             <h3>Trending movies</h3>
-            {movies && movies.map(({ id, original_title }) => (
+            {/* {movies && movies.map(({ id, original_title }) => (
                 <li key={id}>{original_title}</li>
+            ))} */}
+            {movies && movies.map(({ id, original_title }) => (
+                <Link to={id}><li key={id}>{original_title}</li></Link>
             ))}
         </main>
     )
