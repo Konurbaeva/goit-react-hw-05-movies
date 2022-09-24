@@ -1,6 +1,6 @@
 // import { Outlet, Link } from "react-router-dom";
-import { lazy } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Routes, Route, NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 // import { HomePage } from './Views/HomePage/HomePage';
 // import { MoviesPage } from './Views/MoviesPage/MoviesPage';
@@ -18,6 +18,7 @@ const MoviesPage = lazy(() => import('./Views/MoviesPage/MoviesPage.js'));
 const Cast = lazy(() => import('./Views/Cast/Cast.js'));
 const Reviews = lazy(() => import('./Views/Reviews/Reviews.js'));
 const NotFoundPage = lazy(() => import('./Views/NotFoundPage/NotFoundPage.js'));
+const Loader = lazy(() => import('./Views/Loader/Loader.js'));
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -48,7 +49,7 @@ export const App = () => {
         </Route>
       </Routes> */}
 
-      <Routes>
+      {/* <Routes>
         <Route index element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />}>
           <Route path=":movieId" element={<MovieDetailsPage />} />
@@ -56,7 +57,18 @@ export const App = () => {
           <Route path=":movieId/reviews" element={<Reviews />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-      </Routes>
+      </Routes> */}
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+          <Route path="/movies/:movieId/cast" element={<Cast />} />
+          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+      <Outlet />
     </div>
   );
 };
