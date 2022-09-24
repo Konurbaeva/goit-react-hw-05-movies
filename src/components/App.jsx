@@ -36,16 +36,6 @@ export const App = () => {
       </nav>
       <Outlet />
       <Suspense fallback={<Loader />}>
-        {/* <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="/movies" element={<MoviesPage />}>
-            <Route path=":movieId" element={<MovieDetailsPage />}>
-              <Route path=":movieId/cast" element={<Cast />} />
-              <Route path=":movieId/reviews" element={<Reviews />} />
-            </Route>
-          </Route>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes> */}
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="movies" element={<MoviesPage />}>
