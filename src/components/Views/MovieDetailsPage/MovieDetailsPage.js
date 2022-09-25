@@ -43,9 +43,14 @@ const MovieDetailsPage = () => {
                 ))} */}
                 {movieId}
             </main>
-            <nav>
+            {/* <nav>
                 <Link to="/movies/get-movie-credits ">Credits</Link> <br />
                 <Link to="/movies/get-movie-reviews">Reviews</Link>
+            </nav> */}
+            <nav>
+                {/* <Link to="/:movieId">Credits</Link> <br /> */}
+                <Link to={`${movieId}/get-movie-credits`}>Credits</Link> <br />
+                <Link to={`${movieId}/get-movie-reviews`}>Reviews</Link>
             </nav>
             {/* <Outlet /> */}
         </div>
