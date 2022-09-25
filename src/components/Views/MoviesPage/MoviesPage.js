@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-// import { Link, Outlet } from "react-router-dom";
-
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
 import { useLocation } from "react-router-dom";
 
@@ -9,11 +7,7 @@ const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     // const movie = moviesApi.getMovieDetails(id);
-    const location = useLocation();
-
-    useEffect(() => {
-        console.log('location: ', location)
-    }, [location]);
+    // const location = useLocation();
 
     console.log('movies: ', movies)
 
@@ -30,17 +24,13 @@ const MoviesPage = () => {
         setSearchQuery(searchQuery);
     };
 
-    // useEffect(() => {
-    //     moviesApi.searchMovies(searchQuery).then(setMovies);
-    // }, [searchQuery]);
-
     useEffect(() => {
         moviesApi.searchMovies(searchQuery).then(setMovies);
     }, [searchQuery]);
 
-    // useEffect(() => {
-    //     moviesApi.getMovieDetails().then(setMovies);
-    // }, []);
+    useEffect(() => {
+        moviesApi.getMovieDetails().then(setMovies);
+    }, []);
 
     return (
         <>
@@ -64,6 +54,8 @@ const MoviesPage = () => {
                         </li>
                     ))
                 } */}
+
+
 
             </form>
             <Outlet />
