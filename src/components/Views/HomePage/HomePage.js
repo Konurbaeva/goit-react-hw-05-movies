@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import { useMatch, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+import { Link, Outlet, useLocation } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
 
 const HomePage = () => {
@@ -8,7 +9,7 @@ const HomePage = () => {
 
     // const match = useMatch();
     // // is useLocation v5?
-    // const location = useLocation();
+    const location = useLocation();
     useEffect(() => {
         // moviesApi.getMovieDetails().then(setMovies)
         moviesApi.getTrending().then(setMovies);
@@ -38,9 +39,15 @@ const HomePage = () => {
                 <li key={id}>{original_title}</li>
             ))} */}
             {movies && movies.map(({ id, original_title }) => (
-                <Link to={id}><li key={id}>{original_title}</li></Link>
+                // <Link to={id}><li key={id}>{original_title}</li></Link>
+
+                <Link to={`${id}`} state={{ from: location.pathname }}>
+                    {original_title}
+                </Link>
             ))}
+            <Outlet />
         </main>
+
     )
 }
 

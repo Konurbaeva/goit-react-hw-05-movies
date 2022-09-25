@@ -10,6 +10,9 @@ const MovieDetailsPage = () => {
 
     const { movieId } = useParams();
     const location = useLocation();
+    // const { productId } = useParams();
+    console.log('movieId: ', movieId)
+    console.log('movies: ', movies)
 
 
     useEffect(() => {
@@ -33,17 +36,18 @@ const MovieDetailsPage = () => {
                     </Link>
                 ))} */}
 
-                {movies.map(({ movieId }) => (
+                {/* {movies.map(({ movieId }) => (
                     <Link to={`${movieId}`}>
                         <img src="https://via.placeholder.com/200x100" alt="" />
                     </Link>
-                ))}
+                ))} */}
+                {movieId}
             </main>
             <nav>
                 <Link to="/movies/get-movie-credits ">Credits</Link> <br />
                 <Link to="/movies/get-movie-reviews">Reviews</Link>
             </nav>
-            <Outlet />
+            {/* <Outlet /> */}
         </div>
     )
 }
