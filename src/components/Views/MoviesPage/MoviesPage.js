@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link, Outlet } from "react-router-dom";
 
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     // const movie = moviesApi.getMovieDetails(id);
-    // const location = useLocation();
+    const location = useLocation();
 
     console.log('movies: ', movies)
 
@@ -42,9 +41,18 @@ const MoviesPage = () => {
                     placeholder="Search for movies"
                 />
                 <button type="submit">Search</button>
-                {movies && movies.map(({ id, original_title }) => (
+                {/* {movies && movies.map(({ id, original_title }) => (
                     <li key={id}>{original_title}</li>
+                ))} */}
+
+                {movies && movies.map(({ id, original_title }) => (
+                    // <Link to={id}><li key={id}>{original_title}</li></Link>
+
+                    <Link to={`${id}`} state={{ from: location.pathname }}>
+                        {original_title}
+                    </Link>
                 ))}
+
                 {/* {
                     movies.map(({ id, name, original_title }) => (
                         <li key={id}>
