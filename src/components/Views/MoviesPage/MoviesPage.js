@@ -8,13 +8,6 @@ const MoviesPage = () => {
     // const movie = moviesApi.getMovieDetails(id);
     const location = useLocation();
 
-    console.log('movies: ', movies)
-
-    let handleSearch = (e) => {
-        let lowerCase = e.target.value.toLowerCase();
-        setSearchQuery(lowerCase)
-    }
-
     let handleInput = (e) => {
         let lowerCase = e.target.value.toLowerCase();
         setSearchQuery(lowerCase)
@@ -23,13 +16,8 @@ const MoviesPage = () => {
 
     let handleSubmit = (e) => {
         e.preventDefault();
-        console.log('handleSubmit  was clicked')
         moviesApi.searchMovies(searchQuery).then(setMovies);
     };
-
-    // useEffect(() => {
-    //     moviesApi.searchMovies(searchQuery).then(setMovies);
-    // }, [searchQuery]);
 
     useEffect(() => {
         moviesApi.getMovieDetails().then(setMovies);

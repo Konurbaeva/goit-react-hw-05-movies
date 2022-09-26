@@ -10,10 +10,6 @@ const MovieDetailsPage = () => {
 
     const { movieId } = useParams();
     const location = useLocation();
-    // const { productId } = useParams();
-    console.log('movieId: ', movieId)
-    console.log('movies: ', movies)
-
 
     useEffect(() => {
         moviesApi.getMovieById(movieId).then(setMovies)
@@ -23,70 +19,18 @@ const MovieDetailsPage = () => {
         <div>
             <main style={{ padding: "1rem 0" }}>
                 <h2>MovieDetailsPage</h2>
-                {/* {data.length > 0 &&
-                    <ul>
-                        {data.genres.map((data) => {
-                            return <li key={data.id}><p>{data.name}</p></li>
-                        })}
-                    </ul>
-                } */}
-                {/* {movies.genres.map((movie) => (
-                    <Link to={`${movie.id}`}>
-                        <img src="https://via.placeholder.com/200x100" alt="" />
-                    </Link>
-                ))} */}
-
-                {/* {movies.map(({ movieId }) => (
-                    <Link to={`${movieId}`}>
-                        <img src="https://via.placeholder.com/200x100" alt="" />
-                    </Link>
-                ))} */}
                 {movieId}
             </main>
-            {/* <nav>
-                <Link to="/movies/get-movie-credits ">Credits</Link> <br />
-                <Link to="/movies/get-movie-reviews">Reviews</Link>
-            </nav> */}
             <nav>
-                {/* <Link to="/:movieId">Credits</Link> <br /> */}
-                <Link to={`/${movieId}/cast`}>Credits</Link> <br />
-                <Link to={`/${movieId}/reviews`}>Reviews</Link>
 
-                {/* <Link to={`/cast`}>Credits</Link> <br />
-                <Link to={`/reviews`}>Reviews</Link> */}
+                {/* <Link to={`movies/${movieId}/cast`}>Credits</Link> <br />
+                <Link to={`movies/${movieId}/reviews`}>Reviews</Link> */}
+
+                <Link to={`cast`}>Credits</Link> <br />
+                <Link to={`reviews`}>Reviews</Link>
             </nav>
-            {/* <Outlet /> */}
         </div>
     )
 }
-
-// const MovieDetailsPage = () => {
-//     const [movie, setMovie] = useState([]);
-//     const location = useLocation();
-//     const navigate = useNavigate();
-
-//     console.log('location.pathname: ', location.pathname);
-
-//     useEffect(() => {
-//         console.log('location: ', location);
-//         moviesApi.getMovieDetails().then(setMovie);
-//     }, [location]);
-
-//     return (
-//         <>
-//             {!movie && <h2>Loading ...</h2>}
-//             {movie && (
-//                 <>
-//                     <button onClick={() => navigate(location?.state?.from ?? '/')}>Go Back</button>
-//                     <h2>{movie.name}</h2>
-//                     <img src={movie.images[1].url} alt={movie.name}></img>
-//                     <p>Genre: {movie.classifications[0].genre.name}</p>
-//                     <p>Subgenre: {movie.classifications[0].subGenre.name}</p>
-//                 </>
-//             )}
-//         </>
-//     );
-
-// }
 
 export default MovieDetailsPage;
