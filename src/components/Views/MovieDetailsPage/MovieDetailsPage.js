@@ -49,8 +49,11 @@ const MovieDetailsPage = () => {
             </nav> */}
             <nav>
                 {/* <Link to="/:movieId">Credits</Link> <br /> */}
-                <Link to={`${movieId}/get-movie-credits`}>Credits</Link> <br />
-                <Link to={`${movieId}/get-movie-reviews`}>Reviews</Link>
+                <Link to={`/${movieId}/cast`}>Credits</Link> <br />
+                <Link to={`/${movieId}/reviews`}>Reviews</Link>
+
+                {/* <Link to={`/cast`}>Credits</Link> <br />
+                <Link to={`/reviews`}>Reviews</Link> */}
             </nav>
             {/* <Outlet /> */}
         </div>

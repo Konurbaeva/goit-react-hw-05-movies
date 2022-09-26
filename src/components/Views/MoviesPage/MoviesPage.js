@@ -10,22 +10,26 @@ const MoviesPage = () => {
 
     console.log('movies: ', movies)
 
-    let inputHandler = (e) => {
+    let handleSearch = (e) => {
         let lowerCase = e.target.value.toLowerCase();
         setSearchQuery(lowerCase)
     }
 
-    let handleSubmit = (e, searchQuery) => {
+    let handleInput = (e) => {
+        let lowerCase = e.target.value.toLowerCase();
+        setSearchQuery(lowerCase)
+
+    }
+
+    let handleSubmit = (e) => {
         e.preventDefault();
         console.log('handleSubmit  was clicked')
-        //     props.onSubmit(searchQuery);
-        //     setSearchQuery('');
-        setSearchQuery(searchQuery);
+        moviesApi.searchMovies(searchQuery).then(setMovies);
     };
 
-    useEffect(() => {
-        moviesApi.searchMovies(searchQuery).then(setMovies);
-    }, [searchQuery]);
+    // useEffect(() => {
+    //     moviesApi.searchMovies(searchQuery).then(setMovies);
+    // }, [searchQuery]);
 
     useEffect(() => {
         moviesApi.getMovieDetails().then(setMovies);
@@ -36,11 +40,11 @@ const MoviesPage = () => {
             <h1>Movies search</h1>
             <form onSubmit={handleSubmit}>
                 <input
-                    onChange={inputHandler}
+                    onChange={handleInput}
                     value={searchQuery}
                     placeholder="Search for movies"
                 />
-                <button type="submit">Search</button>
+                <button type="submit" >Search</button>
                 {/* {movies && movies.map(({ id, original_title }) => (
                     <li key={id}>{original_title}</li>
                 ))} */}

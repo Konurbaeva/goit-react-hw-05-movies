@@ -41,7 +41,7 @@ const HomePage = () => {
             {movies && movies.map(({ id, original_title }) => (
                 // <Link to={id}><li key={id}>{original_title}</li></Link>
 
-                <Link to={`${id}`} state={{ from: location.pathname }}>
+                <Link to={`/movies/${id}`} state={{ from: location.pathname }}>
                     {original_title}
                 </Link>
             ))}
