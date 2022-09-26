@@ -33,10 +33,6 @@ const MoviesPage = () => {
                     placeholder="Search for movies"
                 />
                 <button type="submit" >Search</button>
-                {/* {movies && movies.map(({ id, original_title }) => (
-                    <li key={id}>{original_title}</li>
-                ))} */}
-
                 {movies && movies.map(({ id, original_title }) => (
                     // <Link to={id}><li key={id}>{original_title}</li></Link>
 
@@ -44,19 +40,6 @@ const MoviesPage = () => {
                         {original_title}
                     </Link>
                 ))}
-
-                {/* {
-                    movies.map(({ id, name, original_title }) => (
-                        <li key={id}>
-                            <Link to={id} state={{ from: location.pathname }}>
-                                {original_title}
-                            </Link>
-                        </li>
-                    ))
-                } */}
-
-
-
             </form>
             <Outlet />
         </>
