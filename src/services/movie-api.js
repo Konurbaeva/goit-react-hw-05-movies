@@ -7,10 +7,20 @@ export async function getTrending() {
     return response.data.results;
 }
 
+// get-movie-credits
+// /movie/{movie_id}/credits
+export async function getCast(movieId) {
+    const response = await axios.get(`/movie/${movieId}/credits?api_key=${KEY}&language=en-US`)
+    console.log('getCast: ', response.data)
+    return response.data;
+}
+
+
 export async function getMovieById(movieId) {
     const response = await axios.get(`/movie/${movieId}?api_key=${KEY}&language=en-US`)
     return response.data;
 }
+
 
 // https://api.themoviedb.org/3/search/movie?api_key=e095a1290a6e5cce004c0f0ac9fc4656&query=
 
@@ -22,8 +32,6 @@ export async function getMovieById(movieId) {
 
 export async function searchMovies(searchQuery) {
     const response = await axios.get(`/search/movie?&query=${searchQuery}&api_key=${KEY}`)
-
-    console.log('searchMovies: ', response);
     return response.data.results;
 }
 

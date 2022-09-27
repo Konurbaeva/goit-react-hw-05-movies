@@ -11,7 +11,6 @@ const MoviesPage = () => {
     let handleInput = (e) => {
         let lowerCase = e.target.value.toLowerCase();
         setSearchQuery(lowerCase)
-
     }
 
     let handleSubmit = (e) => {
