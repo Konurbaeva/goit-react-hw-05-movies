@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import * as moviesApi from "../../../services/movie-api";
 import { useLocation, Link, Outlet } from "react-router-dom";
-// import { CardMovie } from '../../../components/CardMovie/CardMovie'
-
-import CardMovie from '../../../components/CardMovie/CardMovie'
 
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]);
@@ -36,19 +33,11 @@ const MoviesPage = () => {
                 />
                 <button type="submit">Search</button>
                 <ul>
-                    {movies && movies.map(({ id, original_title, poster_path, vote_average, overview, genres }) => (
+                    {movies && movies.map(({ id, original_title }) => (
                         <li key={id}>
                             <Link to={`/movies/${id}`} state={{ from: location.pathname }}>
                                 {original_title}
                             </Link>
-                            <CardMovie
-                                id={id}
-                                poster_path={poster_path}
-                                original_title={original_title}
-                                vote_average={vote_average}
-                                overview={overview}
-                                genres={genres}
-                            />
                         </li>
                     ))}
                 </ul>

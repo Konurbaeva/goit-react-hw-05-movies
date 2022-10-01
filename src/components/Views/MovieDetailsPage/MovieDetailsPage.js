@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 // import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 
-import { Link, Outlet, useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
+// import CardMovie from '../../../components/CardMovie/CardMovie'
 import * as moviesApi from "../../../services/movie-api";
 
 const MovieDetailsPage = () => {
     const [movies, setMovies] = useState([]);
-
     const { movieId } = useParams();
     const location = useLocation();
-
-    console.log('movieId: ', movieId)
-    console.log('location: ', location)
 
     useEffect(() => {
         moviesApi.getMovieById(movieId).then(setMovies)
@@ -24,9 +21,19 @@ const MovieDetailsPage = () => {
                 <h2>MovieDetailsPage</h2>
                 Movie with id {movieId}
             </main>
+            <section>
+
+                {/* <CardMovie
+                    id={id}
+                    poster_path={poster_path}
+                    original_title={original_title}
+                    vote_average={vote_average}
+                    overview={overview}
+                    genres={genres}
+                /> */}
+
+            </section>
             <nav>
-                {/* <Link to={`movies/${movieId}/cast`}>Credits</Link> <br />
-                <Link to={`movies/${movieId}/reviews`}>Reviews</Link> */}
                 <div>Additional information</div>
                 <Link to={`cast`}>Credits</Link> <br />
                 <Link to={`reviews`}>Reviews</Link>
