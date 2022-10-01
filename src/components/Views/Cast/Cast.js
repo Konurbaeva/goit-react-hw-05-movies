@@ -13,12 +13,9 @@ const Cast = () => {
     const { movieId } = useParams();
     const location = useLocation();
 
-    // const [events, setEvents] = useState([]);
-    // const location = useLocation();
-
     useEffect(() => {
-        //  moviesApi.getCast(movieId).then(setMovies);
-        moviesApi.getCast().then(setMovies);
+        moviesApi.getCast(movieId).then(setMovies);
+        // moviesApi.getCast().then(setMovies);
     }, [movieId]);
 
     return (
