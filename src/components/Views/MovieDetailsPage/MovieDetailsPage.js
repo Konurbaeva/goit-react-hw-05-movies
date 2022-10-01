@@ -9,13 +9,14 @@ import * as moviesApi from "../../../services/movie-api";
 const MovieDetailsPage = () => {
     const [movies, setMovies] = useState([]);
     const { movieId } = useParams();
-    //  const location = useLocation();
+    const location = useLocation();
+
+    console.log('MovieDetailsPage movies: ', movies)
+    console.log('location: ', location)
 
     useEffect(() => {
         moviesApi.getMovieById(movieId).then(setMovies)
     }, [movieId]);
-
-    console.log('MovieDetailsPage movies: ', movies)
 
     return (
         <div>
