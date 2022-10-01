@@ -29,11 +29,7 @@ export const App = () => {
     <div>
       <nav>
         <StyledLink to="/">Home</StyledLink>
-        <br />
         <StyledLink to="/movies">Movies</StyledLink>
-        <br />
-        <StyledLink to="/movies/:movieId">MovieDetailsPage</StyledLink>
-        <br />
       </nav>
       <Suspense fallback={<Loader />}>
         <Routes>
