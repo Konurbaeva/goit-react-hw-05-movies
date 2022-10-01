@@ -18,6 +18,8 @@ export async function getCast(movieId) {
 
 export async function getMovieById(movieId) {
     const response = await axios.get(`/movie/${movieId}?api_key=${KEY}&language=en-US`)
+
+    console.log('getMovieById response.data: ', response.data)
     return response.data;
 }
 
