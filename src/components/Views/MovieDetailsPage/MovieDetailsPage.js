@@ -1,3 +1,4 @@
+import { useFetchMovie } from "Hooks/useFetchMovie";
 import { useEffect, useState } from "react";
 // import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 
@@ -7,11 +8,14 @@ import * as moviesApi from "../../../services/movie-api";
 
 const MovieDetailsPage = () => {
     const [movies, setMovies] = useState([]);
+
+    const movie = useFetchMovie();
     const { movieId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
 
     console.log('location: ', location)
+    console.log('movie: ', movie)
 
     useEffect(() => {
         moviesApi.getMovieById(movieId).then(setMovies)
@@ -35,7 +39,19 @@ const MovieDetailsPage = () => {
                         genres={genres}
                     />
                 ))} */}
-
+                {movie && (
+                    <>
+                        <h2>{movie.original_title}</h2>
+                        <p>User score {movie.vote_average}</p>
+                        {/* <img src={movie.poster_path} alt={movie.original_title}></img> */}
+                        <h3>Overview</h3>
+                        <p>{movie.overview}</p>
+                        <h3>Genres</h3>
+                        <p>TBD map over genres</p>
+                    </>
+                )}
+                {/* 
+                        <p>Subgenre: {movie.classifications[0].subGenre.name}</p> */}
             </section>
             <nav>
                 <div>Additional information</div>
