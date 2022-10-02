@@ -9,7 +9,10 @@ const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
 root.render(
-  <Router basename='/Konurbaeva/goit-react-hw-05-movies/'>
+  // <Router basename='/Konurbaeva/goit-react-hw-05-movies/'>
+  //   <App />
+  // </Router>
+  <Router basename='/goit-react-hw-05-movies/'>
     <App />
   </Router>
 );

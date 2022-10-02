@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 // import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 
-import { Link, useParams, useLocation } from "react-router-dom";
-
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 // import CardMovie from '../../../components/CardMovie/CardMovie'
 import * as moviesApi from "../../../services/movie-api";
 
 const MovieDetailsPage = () => {
     const [movies, setMovies] = useState([]);
     const { movieId } = useParams();
+    const navigate = useNavigate();
     const location = useLocation();
 
-    console.log('MovieDetailsPage movies: ', movies)
     console.log('location: ', location)
 
     useEffect(() => {
@@ -20,20 +19,22 @@ const MovieDetailsPage = () => {
 
     return (
         <div>
+            <button onClick={() => navigate(location?.state?.from ?? '/')}>Go Back</button>
             <main style={{ padding: "1rem 0" }}>
                 <h2>MovieDetailsPage</h2>
                 Movie with id {movieId}
             </main>
             <section>
-
-                {/* <CardMovie
-                    id={id}
-                    poster_path={poster_path}
-                    original_title={original_title}
-                    vote_average={vote_average}
-                    overview={overview}
-                    genres={genres}
-                /> */}
+                {/* {movies && movies.map(({ id, poster_path, original_title, vote_average, overview, genres }) => (
+                    <CardMovie
+                        id={id}
+                        poster_path={poster_path}
+                        original_title={original_title}
+                        vote_average={vote_average}
+                        overview={overview}
+                        genres={genres}
+                    />
+                ))} */}
 
             </section>
             <nav>

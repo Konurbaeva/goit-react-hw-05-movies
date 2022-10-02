@@ -32,7 +32,7 @@ export const App = () => {
         <StyledLink to="/movies">Movies</StyledLink>
       </nav>
       <Suspense fallback={<Loader />}>
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="movies/" element={<MoviesPage />} />
@@ -43,8 +43,8 @@ export const App = () => {
 
             <Route path="*" element={<NotFoundPage />} />
           </Route>
-        </Routes> */}
-        <Routes>
+        </Routes>
+        {/* <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="/movies" element={<MoviesPage />} />
@@ -55,7 +55,7 @@ export const App = () => {
 
             <Route path="*" element={<NotFoundPage />} />
           </Route>
-        </Routes>
+        </Routes> */}
       </Suspense>
     </div>
   );
