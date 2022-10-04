@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-// import { useMatch, useLocation } from "react-router-dom";
-import { useLocation, useParams } from "react-router-dom";
+// import { useMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
 import { imageURL } from "../../../services/imageUrl"
-
 
 const Cast = () => {
     const [movies, setMovies] = useState([]);
     const { movieId } = useParams();
-    const location = useLocation();
 
     useEffect(() => {
         moviesApi.getCast(movieId).then(setMovies);

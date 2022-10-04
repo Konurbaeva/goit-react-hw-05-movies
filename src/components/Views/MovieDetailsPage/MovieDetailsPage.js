@@ -13,8 +13,7 @@ const MovieDetailsPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    console.log('location: ', location)
-    console.log('movie: ', movie)
+    console.log('movies: ', movies)
 
     useEffect(() => {
         moviesApi.getMovieById(movieId).then(setMovies)
@@ -53,7 +52,6 @@ const MovieDetailsPage = () => {
                 <Suspense fallback={<div>Loading subpage...</div>}>
                     <Outlet />
                 </Suspense>
-
             </nav>
         </div>
     )
