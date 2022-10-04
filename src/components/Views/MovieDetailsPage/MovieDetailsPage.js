@@ -30,7 +30,13 @@ const MovieDetailsPage = () => {
                         <h3>Overview</h3>
                         <p>{movie.overview}</p>
                         <h3>Genres</h3>
-                        <p>TBD map over genres</p>
+                        {movie.genres?.map(({ id, name }) => {
+                            return (
+                                <div key={id}>
+                                    <p>{name}</p>
+                                </div>
+                            )
+                        })}
                     </>
                 )}
             </section>
