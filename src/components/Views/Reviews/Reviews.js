@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
-import { imageURL } from "../../../services/imageUrl"
 
 const Reviews = () => {
 
