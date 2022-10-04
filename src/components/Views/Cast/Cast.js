@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
 
-// /movies/:movieId/cast - компонент Cast, информация о актерском составе. 
-// Рендерится на странице MovieDetails
-
 const Cast = () => {
     const [movies, setMovies] = useState([]);
     const { movieId } = useParams();
@@ -14,7 +11,6 @@ const Cast = () => {
 
     useEffect(() => {
         moviesApi.getCast(movieId).then(setMovies);
-        console.log(' moviesApi.getCast(movieId)', moviesApi.getCast(movieId))
     }, [movieId]);
 
     return (
@@ -22,7 +18,11 @@ const Cast = () => {
             <h2>Cast</h2>
             {movies.cast?.map((movie) => {
                 return (
-                    <div key={movie.id}>I am one Object in the Array {movie.id}</div>
+                    <div key={movie.id}>
+                        <img src={movie.backdrop_path} alt={movie.backdrop_path} />
+                        <p>Name: {movie.name}</p>
+                        <p>Character: {movie.character}</p>
+                    </div>
                 )
             })}
         </main>
