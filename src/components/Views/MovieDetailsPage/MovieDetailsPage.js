@@ -1,8 +1,7 @@
 import { useFetchMovie } from "Hooks/useFetchMovie";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 // import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
-
-import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 // import CardMovie from '../../../components/CardMovie/CardMovie'
 import * as moviesApi from "../../../services/movie-api";
 
@@ -53,6 +52,10 @@ const MovieDetailsPage = () => {
                 <div>Additional information</div>
                 <Link to={`cast`}>Cast</Link> <br />
                 <Link to={`reviews`}>Reviews</Link>
+                <Suspense fallback={<div>Loading subpage...</div>}>
+                    <Outlet />
+                </Suspense>
+
             </nav>
         </div>
     )

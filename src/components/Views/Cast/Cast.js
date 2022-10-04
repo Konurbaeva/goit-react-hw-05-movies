@@ -15,32 +15,19 @@ const Cast = () => {
     const { movieId } = useParams();
     const location = useLocation();
 
-    // useEffect(() => {
-    //     moviesApi.getCast(movieId).then(setMovies);
-    //     console.log('getCast movieId', movieId)
-    // }, [movieId]);
-
     useEffect(() => {
         moviesApi.getCast(movieId).then(setMovies);
         console.log(' moviesApi.getCast(movieId)', moviesApi.getCast(movieId))
     }, [movieId]);
 
-
     return (
         <main style={{ padding: "1rem 0" }}>
             <h2>Cast</h2>
-            {movies.map((movie) => {
+            {movies.cast?.map((movie) => {
                 return (
-                    <div key={movie.id}>I am one Object in the Array {movie}</div>
+                    <div key={movie.id}>I am one Object in the Array {movie.id}</div>
                 )
             })}
-            {/* {movie && (
-                <>
-                    <Link to="cast" state={location.pathname}>Details</Link>
-                </>
-            )} */}
-
-            {/* <Outlet /> */}
         </main>
     )
 }
