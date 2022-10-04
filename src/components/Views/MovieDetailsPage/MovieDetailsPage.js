@@ -1,8 +1,24 @@
 import { useFetchMovie } from "Hooks/useFetchMovie";
 import { Suspense, useEffect, useState } from "react";
-// import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
+import styled from 'styled-components';
+
+const Container = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+`;
+
+const Button = styled.button`
+padding: 8px 16px;
+border-radius: 4px;
+text-decoration: none;
+color: teal;
+font-weight: 500;
+`;
+
+
 
 const MovieDetailsPage = () => {
     const [movies, setMovies] = useState([]);
@@ -19,8 +35,8 @@ const MovieDetailsPage = () => {
     }, [movieId]);
 
     return (
-        <div>
-            <button onClick={() => navigate(location?.state?.from ?? '/')}>Go Back</button>
+        <Container>
+            <Button onClick={() => navigate(location?.state?.from ?? '/')}>Go Back</Button>
             <section>
                 {movie && (
                     <>
@@ -48,7 +64,7 @@ const MovieDetailsPage = () => {
                     <Outlet />
                 </Suspense>
             </nav>
-        </div>
+        </Container>
     )
 }
 

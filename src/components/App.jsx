@@ -15,10 +15,15 @@ const NotFoundPage = lazy(() => import('./Views/NotFoundPage/NotFoundPage.js'));
 const Loader = lazy(() => import('./Views/Loader/Loader.js'));
 
 const StyledLink = styled(NavLink)`
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
   color: black;
+  font-weight: 500;
 
   &.active {
-    color: orange;
+    color: white;
+    background-color: orangered;
   }
 `;
 
@@ -33,7 +38,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="movies/" element={<MoviesPage />} />
+            {/* <Route path="movies/" element={<MoviesPage />} /> */}
+            <Route path="movies" element={<MoviesPage />} />
             <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
