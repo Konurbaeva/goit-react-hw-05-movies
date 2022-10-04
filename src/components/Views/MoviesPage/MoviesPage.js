@@ -49,6 +49,7 @@ const MoviesPage = () => {
                 />
                 <Button type="submit">Search</Button>
                 <ul>
+
                     {movies && movies.map(({ id, original_title }) => (
                         <li key={id}>
                             <Link to={`/movies/${id}`} state={{ from: location.pathname }}>

@@ -3,6 +3,7 @@ import { Suspense, useEffect, useState } from "react";
 import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 import * as moviesApi from "../../../services/movie-api";
 import styled from 'styled-components';
+import { imageURL } from "../../../services/imageUrl"
 
 const Container = styled.div`
   max-width: 960px;
@@ -42,7 +43,7 @@ const MovieDetailsPage = () => {
                     <>
                         <h2>{movie.original_title}</h2>
                         <p>User score {movie.vote_average}</p>
-                        {/* <img src={movie.poster_path} alt={movie.original_title}></img> */}
+                        <img src={imageURL + movie.poster_path} alt={movie.poster_path} />
                         <h3>Overview</h3>
                         <p>{movie.overview}</p>
                         <h3>Genres</h3>
