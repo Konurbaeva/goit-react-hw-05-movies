@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useFetchMovie } from "Hooks/useFetchMovie";
 // import { useMatch, useLocation } from "react-router-dom";
 
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
@@ -10,8 +9,6 @@ import * as moviesApi from "../../../services/movie-api";
 
 const Cast = () => {
     const [movies, setMovies] = useState([]);
-    const movie = useFetchMovie();
-
     const { movieId } = useParams();
     const location = useLocation();
 
