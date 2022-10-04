@@ -45,8 +45,6 @@ const MovieDetailsPage = () => {
                         <p>TBD map over genres</p>
                     </>
                 )}
-                {/* 
-                        <p>Subgenre: {movie.classifications[0].subGenre.name}</p> */}
             </section>
             <nav>
                 <div>Additional information</div>
