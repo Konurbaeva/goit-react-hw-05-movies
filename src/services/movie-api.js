@@ -7,12 +7,16 @@ export async function getTrending() {
     return response.data.results;
 }
 
-// get-movie-credits
-// /movie/{movie_id}/credits
 export async function getCast(movieId) {
     const response = await axios.get(`/movie/${movieId}/credits?api_key=${KEY}&language=en-US`)
-    console.log('getCast: ', response)
+    // console.log('getCast: ', response)
     return response.data;
+}
+
+export async function getReviews(movieId) {
+    const response = await axios.get(`/movie/${movieId}/reviews?api_key=${KEY}&language=en-US`)
+    console.log('getReviews: ', response.data.results)
+    return response.data.results;
 }
 
 
