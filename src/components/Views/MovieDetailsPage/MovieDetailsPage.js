@@ -2,7 +2,6 @@ import { useFetchMovie } from "Hooks/useFetchMovie";
 import { Suspense, useEffect, useState } from "react";
 // import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
 import { Link, Outlet, useParams, useLocation, useNavigate } from "react-router-dom";
-// import CardMovie from '../../../components/CardMovie/CardMovie'
 import * as moviesApi from "../../../services/movie-api";
 
 const MovieDetailsPage = () => {
@@ -23,16 +22,6 @@ const MovieDetailsPage = () => {
         <div>
             <button onClick={() => navigate(location?.state?.from ?? '/')}>Go Back</button>
             <section>
-                {/* {movies && movies.map(({ id, poster_path, original_title, vote_average, overview, genres }) => (
-                    <CardMovie
-                        id={id}
-                        poster_path={poster_path}
-                        original_title={original_title}
-                        vote_average={vote_average}
-                        overview={overview}
-                        genres={genres}
-                    />
-                ))} */}
                 {movie && (
                     <>
                         <h2>{movie.original_title}</h2>
