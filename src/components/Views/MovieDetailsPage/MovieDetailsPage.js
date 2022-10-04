@@ -24,10 +24,6 @@ const MovieDetailsPage = () => {
     return (
         <div>
             <button onClick={() => navigate(location?.state?.from ?? '/')}>Go Back</button>
-            <main style={{ padding: "1rem 0" }}>
-                <h2>MovieDetailsPage</h2>
-                Movie with id {movieId}
-            </main>
             <section>
                 {/* {movies && movies.map(({ id, poster_path, original_title, vote_average, overview, genres }) => (
                     <CardMovie
@@ -55,7 +51,7 @@ const MovieDetailsPage = () => {
             </section>
             <nav>
                 <div>Additional information</div>
-                <Link to={`cast`}>Credits</Link> <br />
+                <Link to={`cast`}>Cast</Link> <br />
                 <Link to={`reviews`}>Reviews</Link>
             </nav>
         </div>

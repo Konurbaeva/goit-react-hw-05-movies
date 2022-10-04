@@ -11,7 +11,7 @@ export async function getTrending() {
 // /movie/{movie_id}/credits
 export async function getCast(movieId) {
     const response = await axios.get(`/movie/${movieId}/credits?api_key=${KEY}&language=en-US`)
-    console.log('getCast: ', response.data)
+    console.log('getCast: ', response)
     return response.data;
 }
 
