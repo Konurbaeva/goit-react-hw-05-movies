@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as moviesApi from "../../../services/movie-api";
 import { useLocation, Link, Outlet } from "react-router-dom";
 import styled from 'styled-components';
