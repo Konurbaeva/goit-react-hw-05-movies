@@ -34,10 +34,6 @@ const MoviesPage = () => {
         moviesApi.searchMovies(searchQuery).then(setMovies);
     };
 
-    useEffect(() => {
-        moviesApi.getMovieDetails().then(setMovies);
-    }, []);
-
     return (
         <>
             <h1>Movies search</h1>
